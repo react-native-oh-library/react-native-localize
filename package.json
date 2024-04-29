@@ -1,6 +1,6 @@
 {
-  "name": "react-native-localize",
-  "version": "3.1.0",
+  "name": "@react-native-oh-tpl/react-native-localize",
+  "version": "3.1.0-0.0.1",
   "license": "MIT",
   "description": "A toolbox for your React Native app localization.",
   "author": "Mathieu Acthernoene <zoontek@gmail.com>",
@@ -13,13 +13,17 @@
     "/dist",
     "/ios",
     "/mock",
+	"/harmony",
     "/src",
     "RNLocalize.podspec",
     "package.json"
   ],
+  "harmony": {
+    "alias": "react-native-localize"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zoontek/react-native-localize.git"
+    "url": "https://github.com/react-native-oh-library/react-native-localize.git"
   },
   "keywords": [
     "react-native-localize",
@@ -30,10 +34,15 @@
     "l20n"
   ],
   "scripts": {
-    "format": "prettier '**/*' -u -w",
+    "format": "prettier \"**/*\" -u -w",
     "typecheck": "tsc --noEmit",
     "build": "bob build && tsc mock/index -d -m commonjs -t es2015 --skipLibCheck",
-    "prepack": "prettier '**/*' -u -c && yarn typecheck && yarn build"
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepare": "bob build",
+    "release": "release-it",
+    "example": "yarn --cwd example",
+    "bootstrap": "yarn example && yarn install && yarn example pods",
+    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
   },
   "react-native-builder-bob": {
     "source": "src",
@@ -58,6 +67,9 @@
     "react-native-macos": {
       "optional": true
     }
+  },
+  "dependencies": {
+    "react-native-localize": "3.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

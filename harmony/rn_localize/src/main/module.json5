@@ -1,0 +1,7 @@
+{
+  module: {
+    name: 'rn_localize',
+    type: 'har',
+    deviceTypes: ['default'],
+  },
+}
