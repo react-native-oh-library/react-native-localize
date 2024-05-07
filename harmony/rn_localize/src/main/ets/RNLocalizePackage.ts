@@ -21,28 +21,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
- 
-import { RNPackage, TurboModulesFactory } from '@rnoh/react-native-openharmony/ts';
-import type { TurboModule, TurboModuleContext } from '@rnoh/react-native-openharmony/ts';
-import { RNLocalizeTurboModule } from './RNLocalizeTurboModule';
 
-class RNLocalizeTurboModulesFactory extends TurboModulesFactory {
+import { RNPackage, TurboModulesFactory } from "@rnoh/react-native-openharmony/ts";
+import type { TurboModule, TurboModuleContext } from "@rnoh/react-native-openharmony/ts";
+import { TM } from "@rnoh/react-native-openharmony/generated/ts";
+import { RNLocalizeModule } from './RNLocalizeModule';
 
+class RNLocalizeModulesFactory extends TurboModulesFactory {
   createTurboModule(name: string): TurboModule | null {
-    if (name === 'RNLocalize') {
-      return new RNLocalizeTurboModule(this.ctx);
+    if (name === TM.RNLocalize.NAME) {
+      return new RNLocalizeModule(this.ctx);
     }
     return null;
   }
 
   hasTurboModule(name: string): boolean {
-    return name === 'RNLocalize';
+    return name === TM.RNLocalize.NAME;
   }
-
 }
 
 export class RNLocalizePackage extends RNPackage {
   createTurboModulesFactory(ctx: TurboModuleContext): TurboModulesFactory {
-    return new RNLocalizeTurboModulesFactory(ctx);
+    return new RNLocalizeModulesFactory(ctx);
   }
 }

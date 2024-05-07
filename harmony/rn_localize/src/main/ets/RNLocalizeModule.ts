@@ -21,18 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
- 
+
 import { TurboModule } from '@rnoh/react-native-openharmony/ts';
-import type { TurboModuleContext } from '@rnoh/react-native-openharmony/ts';
+import { TM } from "@rnoh/react-native-openharmony/generated/ts"
 import I18n from '@ohos.i18n';
 import Intl from '@ohos.intl';
 
-export class RNLocalizeTurboModule extends TurboModule {
-  constructor(ctx: TurboModuleContext) {
-    super(ctx);
-  }
-
-  getCalendar() {
+export class RNLocalizeModule extends TurboModule implements TM.RNLocalize.Spec {
+  getCalendar(): string {
     let locale = new Intl.Locale();
     let calendar = locale.calendar;
     if(calendar == '') {
@@ -108,4 +104,12 @@ export class RNLocalizeTurboModule extends TurboModule {
   }
 
   usesMetricSystem = () => true;
+
+  usesAutoDateAndTime(): null | boolean{
+    return null
+  }
+
+  usesAutoTimeZone(): null | boolean{
+    return null
+  }
 }

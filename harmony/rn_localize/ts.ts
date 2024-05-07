@@ -22,5 +22,5 @@
  * SOFTWARE.
  */
 
-export * from "./src/main/ets/RNLocalizeTurboModule"
+export * from "./src/main/ets/RNLocalizeModule"
 export * from "./src/main/ets/RNLocalizePackage"
