@@ -13,7 +13,7 @@
     "/dist",
     "/ios",
     "/mock",
-	  "/harmony",
+    "/harmony",
     "/src",
     "RNLocalize.podspec",
     "package.json"
@@ -42,8 +42,7 @@
     "release": "release-it",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn install && yarn example pods",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build",
-    "codegen": "react-native codegen-harmony --rnoh-module-path ./harmony/react_native_openharmony"
+    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
   },
   "react-native-builder-bob": {
     "source": "src",
@@ -82,25 +81,17 @@
     "react": "18.2.0",
     "react-native": "0.72.5",
     "react-native-builder-bob": "^0.23.2",
-    "typescript": "^5.3.3",
-    "react-native-harmony": "file:../react-native-harmony/rnoh-react-native-harmony-0.72.23.tgz"
+    "typescript": "^5.3.3"
   },
   "overrides": {
     "@react-native/codegen": "0.74.0"
   },
   "harmony": {
-      "codegenConfig": {
-        "specPaths": [
-          "./src"
-        ]
-      }
-  },
-  "codegenConfig": {
-    "name": "RNLocalizeSpec",
-    "type": "modules",
-    "jsSrcsDir": "./src",
-    "android": {
-      "javaPackageName": "com.zoontek.rnlocalize"
+    "alias": "react-native-localize",
+    "codegenConfig": {
+      "specPaths": [
+        "./src"
+      ]
     }
   }
 }
