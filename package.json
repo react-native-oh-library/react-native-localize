@@ -18,9 +18,6 @@
     "RNLocalize.podspec",
     "package.json"
   ],
-  "harmony": {
-    "alias": "react-native-localize"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/react-native-oh-library/react-native-localize.git"
